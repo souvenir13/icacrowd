@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+
+    <script src="https://ajax.googleapis.bootcss.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!--    <script src="http://maxcdn.bootstrapcdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <!--youziku-->
+<!--    <script type="text/javascript" src="http://api.youziku.com/webfont/FastJS/yzk_D918BD1B5405F6C1"></script>
+    <script type="text/javascript" src="http://api.youziku.com/webfont/FastJS/yzk_D918BD1B5405F6C1"></script>-->
+
+<!--    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/bootstrap-combined.no-modal.min.css">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <!--<link href="css/wjsiwyg.css" rel="stylesheet">-->
+    <!--DIY css-->
+    <link href="css/main.css" rel="stylesheet">
+    <!--<script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script>-->
+    <script type="text/javascript">hQGHuMEAyLn('[id^=__YX_PF_Div]');</script>
+    <style>
+        p{
+            font-size:18px;
+        }
+        #add-question-btn{
+            float: right;
+            margin-top: -40px;
+            height: 35px;
+            line-height: 1.2;
+        }
+        #work-named{
+            clear:both;
+        }
+        label{
+            display:inline;/*使得选项不占据整一行*/
+            margin:10px 0;
+        }
+        .rubbish{
+            width: 13px;
+            float: none;
+            position: relative;
+            left: 85px;
+            top: -22px;
+            opacity: 0.6;
+        }
+        .btn-group{
+            padding-bottom:10px;
+        }
+        .input-group{
+            display:block;
+            padding-bottom: 20px;
+        }
+        .multi-question{
+            width:100%;
+        }
+        .multi-question .form-control{
+            float:none;
+            height:32px;
+            width:50%;
+            margin-bottom: 10px;
+        }
+        .multi-question input[type='image']{
+            padding-top: 25px;
+        }
+        #question-edit,
+        #add-trigger-detail{
+            margin-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #question-edit,
+        #question-example .work-edit:link,.work-edit:visited{
+            text-decoration:none;
+        }
+        #question-example .work-edit:hover,.work-edit:active{
+            text-decoration:none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body style="background-color:#F5F7F9">
+<div style="background:#032951;height:10px"></div>
+<div id="header" style="height:100px;width:80%;display:table;margin-left:auto;margin-right:auto">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            UserName
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1" style="margin-top:70px;">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        </ul>
+    </div>
+    <img src="img/SeriousLogo.png" style="height:50px;margin-top:30px;">
+</div>
+<div id="container">
+    <div id="work-tab">
+        <section class="links">
+            <nav class="link-effect-14" id="link-effect-14">
+                <a href="CustomerCreateWork.html"><span>Create&nbsp;></span></a>
+                <a href="CustomerUpload.html"><span>Upload&nbsp;></span></a>
+                <a href="workDesignStepTwo.html"><span style="color:#16A094;">Design&nbsp;></span></a>
+                <a href="workDesignStepThree.html"><span>Settings&nbsp;></span></a>
+                <a href="CustomerWorkRelease.html"><span>Public&nbsp;></span></a>
+            </nav>
+        </section>
+        <div id="work-btn">
+            <button id="work-btn-next" class="btn btn-info work-font" type="button">下一步：工作设定</button>
+        </div>
+    </div>
+    <div id="work-content">
+            <h1 class="work-font">第二步：设计工作</h1>
+        <!--任务名称-->
+        <div id="work-named">
+            <h2 class="work-font">工作名称</h2>
+            <div id="workname-alert" class="alert alert-danger alert-dismissable" role="alert" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>警告！</strong>您忘记编辑工作名称啦！
+            </div>
+            <div class="input-group">
+                <input type="text" id="work-name" class="form-control" placeholder="填写工作名称" style="height:30px;border-radius:4px;">
+            </div>
+        </div>
+        <!--问题设定-->
+        <div>
+            <h2 class="work-font">问题设定</h2>
+            <!--若进入单选题模板，则单机添加问题默认添加单选题-->
+            <button class="btn btn-success" id="add-question-btn" onclick="addQuestion('single')">添加问题</button>
+            <div id="worksetting-alert" class="alert alert-danger alert-dismissable" role="alert" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>警告！</strong>您是不是忘记编辑问题了呢？
+            </div>
+        </div>
+        <div id="question-edit" class="panel panel-default">
+            <div class="panel-body" id="div-add-question" style="padding-top:20px;">
+                <div id="div-add-question1">
+                    <a data-toggle="modal" id="deleteid1" class="delete" href="#question-delete-modal" style="float:right;margin-left:10px;">Delete</a>
+                    <a data-toggle="modal" id="edit1" class="edit" href="#question-edit-modal" style="float:right;">Edit</a>
+                    <div id="question-content1"><p class="work-font">你可以点击Edit编辑你的问题，这里会显示你编辑好的问题题干。</p></div>
+                    <div id="answer-content1">
+                        <div class="radio" style="display:inline;">
+                            <label class="radio" style="display:inline-block;"><input type="radio" name="question_1" value="1" data-toggle="radio"><span style="margin:0 10px;">A</span>选项一</label><br/>
+                        </div>
+                        <div class="radio" style="display:inline;">
+                            <label class="radio" style="display:inline-block;"><input type="radio" name="question_1" value="2" data-toggle="radio"><span style="margin:0 10px;">B</span>选项二</label><br/>
+                        </div>
+                        <div class="radio" style="display:inline;">
+                            <label class="radio" style="display:inline-block;"><input type="radio" name="question_1" value="3" data-toggle="radio"><span style="margin:0 10px;">C</span>选项三</label><br/>
+                        </div>
+                        <div class="radio" style="display:inline;">
+                            <label class="radio" style="display:inline-block;"><input type="radio" name="question_1" value="4" data-toggle="radio"><span style="margin:0 10px;">D</span>选项四</label><br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--question edit modal-->
+        <div class="modal fade" id="question-edit-modal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title work-font" id="myModalLabel">
+                            问题设定
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <p>选择题目类型</p>
+                            <select id="select-questionType" name="questionType" class="question-type-selector">
+                                <option value="1">单选题</option>
+                                <option value="2">多选题</option>
+                                <option value="3">填空题</option>
+                            </select>
+                        </div>
+                        <div id="simple-edit">
+                            <p class="work-font" style="font-weight:bold;float:left;">题干</p>
+                            <div class="input-group">
+                                <input id="sing-question" type="text" class="form-control" placeholder="编辑题干" style="height:30px;border-radius:4px;">
+                            </div>
+                            <p class="work-font" style="font-weight:bold;display:block;">选项</p>
+                            <label class="checkbox"><input type="checkbox" id="select-form1" data-toggle="checkbox">是否选用下拉框的形式显示</label>
+                            <div class="input-group multi-question" id="single-question">
+                                <div>
+                                    <input type="text" value="" id="s1" placeholder="选项内容" class="form-control"/>
+                                    <input type="image" src="img/glyphicons-17-bin.png" alt="delete" class="rubbish" onclick="deleteInputText(this)">
+                                </div>
+                                <div>
+                                    <input type="text" value="" id="s2" placeholder="选项内容" class="form-control" />
+                                    <input type="image" src="img/glyphicons-17-bin.png" alt="delete" class="rubbish" onclick="deleteInputText(this)">
+                                </div>
+                            </div>
+                            <button class="btn btn-info" onClick="addInputText('single-question','s')">添加选项</button>
+                        </div>
+                        <div id="multiple-edit" style="display:none;">
+                            <p class="work-font" style="font-weight:bold;float:left;">题干</p>
+                            <div class="input-group">
+                                <input id="mul-question" type="text" class="form-control" placeholder="编辑题干" style="height:30px;border-radius:4px;">
+                            </div>
+                            <p class="work-font" style="font-weight:bold;display:block;">选项</p>
+                            <div class="input-group multi-question" id="multi-question">
+                                <div>
+                                    <input type="text" value="" id="m1" placeholder="选项内容" class="form-control" />
+                                    <input type="image" src="img/glyphicons-17-bin.png" alt="delete" class="rubbish" onclick="deleteInputText(this)">
+                                </div>
+                                <div>
+                                    <input type="text" value="" id="m2" placeholder="选项内容" class="form-control" />
+                                    <input type="image" src="img/glyphicons-17-bin.png" alt="delete" class="rubbish" onclick="deleteInputText(this)">
+                                </div>
+                            </div>
+                            <button class="btn btn-info" onClick="addInputText('multi-question','m')">添加选项</button>
+                        </div>
+                        <div id="blank-edit" style="display:none;">
+                            <p class="work-font" style="font-weight:bold;float:left;">题干</p>
+                            <div class="input-group">
+                                <input id="blank-question" type="text" class="form-control" placeholder="编辑题干" style="height:30px;border-radius:4px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="saveQuestion(editId)">
+                            保存
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <!--添加跳转-->
+        <!--用户添加了两个问题之后才会显示以下设置-->
+        <div id="add-trigger-content" style="display:none;">
+            <div id="add-trigger-title">
+                <h2><a id="add-trigger-btn" class="add-trigger-btn">添加跳转<span class="caret"></span></a></h2>
+            </div>
+            <div id="trigger-alert" class="alert alert-danger alert-dismissable" role="alert" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>警告！</strong>跳转设定中不允许跳转入同一题哟！
+            </div>
+            <div id="add-trigger-detail" class="panel panel-default" style="display:none;">
+                <div class="panel-body">
+                    <p class="work-font">选择需要建立跳转的指定问题的指定选项</p>
+                    <div id="trigger-option">
+                        <select id="trigger-question-selector">
+                            <option>空</option>
+                        </select>
+                        <select id="trigger-answer-selector">
+                            <option>空</option>
+                        </select>
+                    </div>
+                    <p class="work-font">选择跳转入的问题</p>
+                    <div id="trigger-question">
+                        <!--编辑脚本去除之前用户选择的问题选项-->
+                        <select id="trigger-to-selector">
+                            <option value="">空</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--编辑工作介绍-->
+        <div>
+            <h2 class="work-font">工作介绍</h2>
+            <div id="workdescription-alert" class="alert alert-danger alert-dismissable" role="alert" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>警告！</strong>您是不是忘记编辑工作介绍了呢？
+            </div>
+        </div>
+        <!-- 加载编辑器的容器 -->
+        <script id="myFormDesign" type="text/plain" style="width:100%;">
+        这里写你的初始化内容
+    </script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="js/ueditor/ueditor.config.js"></script>
+        <!-- 编辑器源码文件 -->
+        <script type="text/javascript" src="js/ueditor/ueditor.all.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/ueditor/formdesign/leipi.formdesign.v4.js"></script>
+        <!-- 实例化编辑器 -->
+        <script type="text/javascript">
+            var leipiEditor = UE.getEditor('myFormDesign',{
+                //allowDivTransToP: false,//阻止转换div 为p
+                toolleipi:true,//是否显示，设计器的 toolbars
+                textarea: 'design_content',
+                //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+                toolbars:[[
+                    'fullscreen', 'source', '|', 'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 'strikethrough',  'removeformat', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist','|', 'fontfamily', 'fontsize', '|', 'indent', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',  'link', 'unlink',  '|',  'horizontal',  'spechars',  'wordimage', '|', 'inserttable', 'deletetable',  'mergecells',  'splittocells']],
+                //focus时自动清空初始化时的内容
+                autoClearinitialContent:true,
+                //关闭字数统计
+                wordCount:false,
+                //关闭elementPath
+                elementPathEnabled:false,
+                //默认的编辑区域高度
+                initialFrameHeight:300,
+                iframeCssUrl:"css/bootstrap.min.css" //引入自身 css使编辑器兼容你网站css
+                //更多其他参数，请参考ueditor.config.js中的配置项
+            });
+
+            var leipiFormDesign = {
+                /*执行控件*/
+                exec : function (method) {
+                    leipiEditor.execCommand(method);
+                },
+                /*
+                 Javascript 解析表单
+                 template 表单设计器里的Html内容
+                 fields 字段总数
+                 */
+                parse_form:function(template,fields)
+                {
+                    //正则  radios|checkboxs|select 匹配的边界 |--|  因为当使用 {} 时js报错
+                    var preg =  /(\|-<span(((?!<span).)*leipiplugins=\"(radios|checkboxs|select)\".*?)>(.*?)<\/span>-\||<(img|input|textarea|select).*?(<\/select>|<\/textarea>|\/>))/gi,preg_attr =/(\w+)=\"(.?|.+?)\"/gi,preg_group =/<input.*?\/>/gi;
+                    if(!fields) fields = 0;
+
+                    var template_parse = template,template_data = new Array(),add_fields=new Object(),checkboxs=0;
+
+                    var pno = 0;
+                    template.replace(preg, function(plugin,p1,p2,p3,p4,p5,p6){
+                        var parse_attr = new Array(),attr_arr_all = new Object(),name = '', select_dot = '' , is_new=false;
+                        var p0 = plugin;
+                        var tag = p6 ? p6 : p4;
+                        //alert(tag + " \n- t1 - "+p1 +" \n-2- " +p2+" \n-3- " +p3+" \n-4- " +p4+" \n-5- " +p5+" \n-6- " +p6);
+
+                        if(tag == 'radios' || tag == 'checkboxs')
+                        {
+                            plugin = p2;
+                        }else if(tag == 'select')
+                        {
+                            plugin = plugin.replace('|-','');
+                            plugin = plugin.replace('-|','');
+                        }
+                        plugin.replace(preg_attr, function(str0,attr,val) {
+                            if(attr=='name')
+                            {
+                                if(val=='leipiNewField')
+                                {
+                                    is_new=true;
+                                    fields++;
+                                    val = 'data_'+fields;
+                                }
+                                name = val;
+                            }
+
+                            if(tag=='select' && attr=='value')
+                            {
+                                if(!attr_arr_all[attr]) attr_arr_all[attr] = '';
+                                attr_arr_all[attr] += select_dot + val;
+                                select_dot = ',';
+                            }else
+                            {
+                                attr_arr_all[attr] = val;
+                            }
+                            var oField = new Object();
+                            oField[attr] = val;
+                            parse_attr.push(oField);
+                        })
+                        /*alert(JSON.stringify(parse_attr));return;*/
+                        if(tag =='checkboxs') /*复选组  多个字段 */
+                        {
+                            plugin = p0;
+                            plugin = plugin.replace('|-','');
+                            plugin = plugin.replace('-|','');
+                            var name = 'checkboxs_'+checkboxs;
+                            attr_arr_all['parse_name'] = name;
+                            attr_arr_all['name'] = '';
+                            attr_arr_all['value'] = '';
+
+                            attr_arr_all['content'] = '<span leipiplugins="checkboxs"  title="'+attr_arr_all['title']+'">';
+                            var dot_name ='', dot_value = '';
+                            p5.replace(preg_group, function(parse_group) {
+                                var is_new=false,option = new Object();
+                                parse_group.replace(preg_attr, function(str0,k,val) {
+                                    if(k=='name')
+                                    {
+                                        if(val=='leipiNewField')
+                                        {
+                                            is_new=true;
+                                            fields++;
+                                            val = 'data_'+fields;
+                                        }
+
+                                        attr_arr_all['name'] += dot_name + val;
+                                        dot_name = ',';
+
+                                    }
+                                    else if(k=='value')
+                                    {
+                                        attr_arr_all['value'] += dot_value + val;
+                                        dot_value = ',';
+
+                                    }
+                                    option[k] = val;
+                                });
+
+                                if(!attr_arr_all['options']) attr_arr_all['options'] = new Array();
+                                attr_arr_all['options'].push(option);
+                                //if(!option['checked']) option['checked'] = '';
+                                var checked = option['checked'] !=undefined ? 'checked="checked"' : '';
+                                attr_arr_all['content'] +='<input type="checkbox" name="'+option['name']+'" value="'+option['value']+'"  '+checked+'/>'+option['value']+'&nbsp;';
+
+                                if(is_new)
+                                {
+                                    var arr = new Object();
+                                    arr['name'] = option['name'];
+                                    arr['leipiplugins'] = attr_arr_all['leipiplugins'];
+                                    add_fields[option['name']] = arr;
+
+                                }
+
+                            });
+                            attr_arr_all['content'] += '</span>';
+
+                            //parse
+                            template = template.replace(plugin,attr_arr_all['content']);
+                            template_parse = template_parse.replace(plugin,'{'+name+'}');
+                            template_parse = template_parse.replace('{|-','');
+                            template_parse = template_parse.replace('-|}','');
+                            template_data[pno] = attr_arr_all;
+                            checkboxs++;
+
+                        }else if(name)
+                        {
+                            if(tag =='radios') /*单选组  一个字段*/
+                            {
+                                plugin = p0;
+                                plugin = plugin.replace('|-','');
+                                plugin = plugin.replace('-|','');
+                                attr_arr_all['value'] = '';
+                                attr_arr_all['content'] = '<span leipiplugins="radios" name="'+attr_arr_all['name']+'" title="'+attr_arr_all['title']+'">';
+                                var dot='';
+                                p5.replace(preg_group, function(parse_group) {
+                                    var option = new Object();
+                                    parse_group.replace(preg_attr, function(str0,k,val) {
+                                        if(k=='value')
+                                        {
+                                            attr_arr_all['value'] += dot + val;
+                                            dot = ',';
+                                        }
+                                        option[k] = val;
+                                    });
+                                    option['name'] = attr_arr_all['name'];
+                                    if(!attr_arr_all['options']) attr_arr_all['options'] = new Array();
+                                    attr_arr_all['options'].push(option);
+                                    //if(!option['checked']) option['checked'] = '';
+                                    var checked = option['checked'] !=undefined ? 'checked="checked"' : '';
+                                    attr_arr_all['content'] +='<input type="radio" name="'+attr_arr_all['name']+'" value="'+option['value']+'"  '+checked+'/>'+option['value']+'&nbsp;';
+
+                                });
+                                attr_arr_all['content'] += '</span>';
+
+                            }else
+                            {
+                                attr_arr_all['content'] = is_new ? plugin.replace(/leipiNewField/,name) : plugin;
+                            }
+                            //attr_arr_all['itemid'] = fields;
+                            //attr_arr_all['tag'] = tag;
+                            template = template.replace(plugin,attr_arr_all['content']);
+                            template_parse = template_parse.replace(plugin,'{'+name+'}');
+                            template_parse = template_parse.replace('{|-','');
+                            template_parse = template_parse.replace('-|}','');
+                            if(is_new)
+                            {
+                                var arr = new Object();
+                                arr['name'] = name;
+                                arr['leipiplugins'] = attr_arr_all['leipiplugins'];
+                                add_fields[arr['name']] = arr;
+                            }
+                            template_data[pno] = attr_arr_all;
+
+
+                        }
+                        pno++;
+                    })
+                    var parse_form = new Object({
+                        'fields':fields,//总字段数
+                        'template':template,//完整html
+                        'parse':template_parse,//控件替换为{data_1}的html
+                        'data':template_data,//控件属性
+                        'add_fields':add_fields//新增控件
+                    });
+                    return JSON.stringify(parse_form);
+                },
+                /*type  =  save 保存设计 versions 保存版本  close关闭 */
+                fnCheckForm : function ( type ) {
+                    if(leipiEditor.queryCommandState( 'source' ))
+                        leipiEditor.execCommand('source');//切换到编辑模式才提交，否则有bug
+
+                    if(leipiEditor.hasContents()){
+                        leipiEditor.sync();/*同步内容*/
+
+                        alert("你点击了保存,这里可以异步提交，请自行处理....");
+                        return false;
+                        //--------------以下仅参考-----------------------------------------------------------------------------------------------------
+                        var type_value='',formid=0,fields=$("#fields").val(),formeditor='';
+
+                        if( typeof type!=='undefined' ){
+                            type_value = type;
+                        }
+                        //获取表单设计器里的内容
+                        formeditor=leipiEditor.getContent();
+                        //解析表单设计器控件
+                        var parse_form = this.parse_form(formeditor,fields);
+                        //alert(parse_form);
+
+                        //异步提交数据
+                        $.ajax({
+                            type: 'POST',
+                            url : '/index.php?s=/index/parse.html',
+                            //dataType : 'json',
+                            data : {'type' : type_value,'formid':formid,'parse_form':parse_form},
+                            success : function(data){
+                                if(confirm('查看js解析后，提交到服务器的数据，请临时允许弹窗'))
+                                {
+                                    win_parse=window.open('','','width=800,height=600');
+                                    //这里临时查看，所以替换一下，实际情况下不需要替换
+                                    data  = data.replace(/<\/+textarea/,'&lt;textarea');
+                                    win_parse.document.write('<textarea style="width:100%;height:100%">'+data+'</textarea>');
+                                    win_parse.focus();
+                                }
+
+                                /*
+                                 if(data.success==1){
+                                 alert('保存成功');
+                                 $('#submitbtn').button('reset');
+                                 }else{
+                                 alert('保存失败！');
+                                 }*/
+                            }
+                        });
+
+                    } else {
+                        alert('表单内容不能为空！')
+                        $('#submitbtn').button('reset');
+                        return false;
+                    }
+                } ,
+                /*预览表单*/
+                fnReview : function (){
+                    if(leipiEditor.queryCommandState( 'source' ))
+                        leipiEditor.execCommand('source');/*切换到编辑模式才提交，否则部分浏览器有bug*/
+
+                    if(leipiEditor.hasContents()){
+                        leipiEditor.sync();       /*同步内容*/
+
+                        alert("你点击了预览,请自行处理....");
+                        return false;
+                        //--------------以下仅参考-------------------------------------------------------------------
+
+
+                        /*设计form的target 然后提交至一个新的窗口进行预览*/
+                        document.saveform.target="mywin";
+                        window.open('','mywin',"menubar=0,toolbar=0,status=0,resizable=1,left=0,top=0,scrollbars=1,width=" +(screen.availWidth-10) + ",height=" + (screen.availHeight-50) + "\"");
+
+                        document.saveform.action="/index.php?s=/index/preview.html";
+                        document.saveform.submit(); //提交表单
+                    } else {
+                        alert('表单内容不能为空！');
+                        return false;
+                    }
+                }
+            };
+
+        </script>
+        <!--end 编辑器-->
+    </div>
+    <footer>
+        <p>Posted by: ICA iCrowd Group</p>
+        <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+    </footer>
+</div>
+
+<!--save edit content modal-->
+<div class="modal fade" id="save-edit-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title work-save-font">
+                    确认保存
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="save-info" class="work-save-font">
+                    确认保存，进入下一步工作设定吗？
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button class="btn btn-primary" onclick="saveAll()">
+                    保存
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--question delete modal-->
+<div class="modal fade" id="question-delete-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title work-save-font">
+                    确认删除
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="save-info" class="work-save-font">
+                    确认删除此问题吗？
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-danger" onclick="deleteQuestion()">
+                    确认删除
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script>
+    /*添加选项输入框*/
+    function addInputText(targetId,questionType) {
+        //获取需要生成input text
+        //targetId 加入的位置；questionType 问题类型 's'单选'm'多选
+        //获取现有的input个数
+        //var nodeLen = $("#"+targetId).find('div').length;
+        //var num = parseInt(nodeLen) + 1;
+        var htmlStr = "";
+        htmlStr += "<div><input type=\"text\" value=\"\" name=\""+questionType+"\" placeholder=\"选项内容\" class=\"form-control\" />";
+        htmlStr += "<input type=\"image\" src=\"img/glyphicons-17-bin.png\" alt=\"delete\" class=\"rubbish\" onclick=\"deleteInputText(this)\">"+"</div>";
+        //alert($('#'+targetId).html());
+        $('#'+targetId).append(htmlStr);
+    }
+    /*删除选项输入框*/
+    function deleteInputText(element) {
+        //element当前节点
+        var parentElement = element.parentNode;
+        while(parentElement){
+            //删除当前节点所在的div
+            var parentparentElement = parentElement.parentNode;
+            parentparentElement.removeChild(parentElement);
+        }
+    }
+    /*保存编辑好的内容*/
+    function saveQuestion(eId){
+        /*
+         * eId 正在编辑的题目id
+         * 1判断题型:1为单选2为多选3为填空
+         * 2获取提干放入question-content
+         * 3获取选项个数，循环放入answer-content,并添加序号
+         *
+         * 2016.05.31
+         * 为单选题添加下拉框的显示方式
+         * */
+        var checkValue=$("#select-questionType").find("option:selected").val();
+        if(checkValue==3){
+            //填空题
+            var question_content = $("input[id='blank-question']").val();
+            //alert("填入的内容："+question_content);
+            $("#question-content"+eId).html("<p class=\"work-font\">"+question_content+":</p><input type=\"text\">");
+            $("#answer-content"+eId).remove();
+            $('#question-edit-modal').modal('hide');//关闭模态框
+        }
+        if(checkValue==2){
+            //多选题
+            var a = "A";
+            var ascii = a.charCodeAt(0);//获取a的ascii码
+            var question_content = $("input[id='mul-question']").val();
+            $("#question-content"+eId).html("<p class=\"work-font\">"+question_content+"</p>");
+            //var answerNum = $('#multi-question').find('div').length;
+            var answer_htmlStr = "";
+            $("#multi-question").find('div').each(function(index){
+                var answer_content = $(this).children("input.form-control").val();
+                if(index!=0){
+                    ascii += 1;
+                }
+                var charOrder = String.fromCharCode(ascii);//获取序号A,B,C...
+                //alert("answer_content:"+answer_content);
+                answer_htmlStr += "<div class=\"checkbox\" style=\"display:inline;\"><label class=\"checkbox\" style=\"display:inline-block;\"><input type=\"checkbox\" name=\"checkbox_"+eId+"\" data-toggle=\"checkbox\"><span style=\"margin:0 10px;\">"+charOrder+"</span>"+answer_content+"</label><br/></div>";
+            });
+            $("#answer-content"+eId).html(answer_htmlStr);
+            $("#question-edit-modal").modal("hide");
+        }
+        if(checkValue==1){
+            //单选题
+            //var selectForm = $("#select-form1").attr("checked");
+            var a = "A";
+            var ascii = a.charCodeAt(0);//获取a的ascii码
+            var question_content = $("input[id='sing-question']").val();
+            $("#question-content"+eId).html("<p class=\"work-font\">"+question_content+"</p>");
+            //var answerNum = $('#single-question').find('div').length;
+            var answer_htmlStr = "";
+            var selectForm = $("#select-form1").is(":checked");
+            //alert("selectForm:"+selectForm);
+            $("#single-question").find('div').each(function(index){
+                var answer_content = $(this).children("input.form-control").val();
+                //alert("answer_content:"+answer_content);
+                if(index!=0){
+                    ascii += 1;
+                }
+                var charOrder = String.fromCharCode(ascii);//获取序号A,B,C...
+                if(selectForm == true){
+                    //判断用户是否选择下拉框的形式，并显示相应的形式
+                    answer_htmlStr += "<option>"+answer_content+"</option>";
+                }else{
+                    answer_htmlStr += "<div class=\"radio\" style=\"display:inline;\"><label class=\"radio\" style=\"display:inline-block;\"><input type=\"radio\" name=\"single_"+eId+"\" data-toggle=\"radio\"><span style=\"margin:0 10px;\">"+charOrder+"</span>"+answer_content+"</label><br/></div>";
+                }
+            });
+            //alert(":"+answer_htmlStr);
+            if(selectForm == true){
+                //判断用户是否选择下拉框的形式，并显示相应的形式
+                answer_htmlStr = "<select>"+answer_htmlStr+"</select>";
+                $("#answer-content"+eId).html(answer_htmlStr);
+            }else{
+                $("#answer-content"+eId).html(answer_htmlStr);
+            }
+            //alert("写入成功了!");
+            $('#question-edit-modal').modal('hide');//关闭模态框
+        }
+        updateTrigger();
+    }
+    var editId = "";//获取正在编辑的问题id
+    var deleteId = "";//获取正准备删除的问题id
+    var questionNum = "";//获取现有的问题个数
+
+    //得到正在编辑的题目id
+    var getEditId = function(){
+        $('.edit').click(function(){
+            //alert("fafa2");
+            var str = $(this).closest("div").attr('id');
+            editId = str.replace(/[^0-9]/ig,"");
+            alert("编辑的问题id："+editId);
+        });
+    };
+    //得到正要删除的题目id
+    var getDeleteId = function(){
+        $('.delete').click(function(){
+            //alert("dede2");
+            var str = $(this).closest("div").attr('id');
+            deleteId = str.replace(/[^0-9]/ig,"");
+            //alert("删除的问题id："+deleteId);
+        });
+    };
+    getEditId();
+    getDeleteId();
+    /*添加跳转*/
+    function addTrigger(qNum){
+        //qNum问题个数
+        //显示跳转框
+        if(qNum >= 2){
+            //显示跳转框
+            $("#add-trigger-content").css("display","block");
+        }else{
+            //隐藏跳转框
+            $("#add-trigger-content").css("display","none");
+        }
+    }
+    /*更新跳转*/
+    function updateTrigger(){
+        /*跳转流程：
+         * 1 遍历问题题干放入#trigger-question-selector
+         * 2 点击某个题干根据题干获取对应选项放入#trigger-answer-selector
+         * 3 将除去.trigger-question-selector选中的题干以外的题干放入#trigger-to-selector*/
+        var questionContent = "";//记录题干
+        $("#trigger-question-selector").empty();
+        $("#trigger-answer-selector").empty();
+        $("#trigger-to-selector").empty();
+        $("#trigger-question-selector").append("<option>空</option>");
+        $("#trigger-answer-selector").append("<option>空</option>");
+        $("#trigger-to-selector").append("<option>空</option>");
+        $("#div-add-question").children("div").each(function(index){
+            questionContent = $(this).children("div").first().text();
+            $("#trigger-question-selector").append("<option value=\'"+index+"\'>"+questionContent+"</option>");
+            $("#trigger-to-selector").append("<option value=\'"+index+"\'>"+questionContent+"</option>");
+        });
+        $("#trigger-question-selector").change(function(){
+            var option = $(this).val();
+            //alert("选中问题的val："+option);
+            //清空选项
+            $("#trigger-answer-selector").empty();
+            //遍历对应问题的选项（两种情况select和radio形式）
+            var patt1=new RegExp("select");
+            var optionForm = $("#div-add-question").children("div").eq(option).children("div").eq(1).html();
+            var optionFlag = patt1.test(optionForm);
+            //alert("问题是不是select："+optionFlag);
+            if(optionFlag == true){
+                //显示形式为下拉框时
+                $("#div-add-question").children("div").eq(option).children("div").eq(1).find("option").each(function(){
+                    //alert("lalalala:"+$(this).text());
+                    $("#trigger-answer-selector").append("<option>"+$(this).text()+"</option>");
+                });
+            }else{
+                $("#div-add-question").children("div").eq(option).children("div").eq(1).children("div").each(function(){
+                    //alert("选项："+$(this).children("label").text());
+                    $("#trigger-answer-selector").append("<option>"+$(this).children("label").text()+"</option>");
+                    //questionTemp.questionListContent.push($(this).children("label").text());
+                });
+            }
+
+        });
+    }
+    function addQuestion(templateId){
+        /**
+         * 添加问题
+         * 根据不同的模板变换默认的题型
+         */
+        if(templateId=='single'){
+            //单选题模板
+            var question_htmlStr = "";
+            questionNum = $('#div-add-question').children('div').length;
+            //当前问题数
+            alert("问题数:"+questionNum);
+            questionNum = parseInt(questionNum) + 1;
+            //alert("下一个问题序号："+questionNum);
+            question_htmlStr += "<div id=\"div-add-question"+questionNum+"\" style=\"padding-top:20px\">";
+            question_htmlStr += "<a data-toggle=\"modal\" id=\"deleteid"+questionNum+"\" href=\"#question-delete-modal\" class=\"delete\" style=\"float:right;margin-left:10px;\">Delete</a>";
+            question_htmlStr += "<a data-toggle=\"modal\" id=\"edit"+questionNum+"\" class=\"edit\" href=\"#question-edit-modal\" style=\"float:right;\">Edit</a>";
+            question_htmlStr += "<div id=\"question-content"+questionNum+"\"><p class=\"work-font\">你可以点击Edit编辑你的问题，这里会显示你编辑好的问题题干。</p></div>";
+            question_htmlStr += "<div id=\"answer-content"+questionNum+"\">";
+            question_htmlStr += "<div class=\"radio\" style=\"display:inline;\"><label class=\"radio\" style=\"display:inline-block;\"><input type=\"radio\" name=\"question_"+questionNum+"\" data-toggle=\"radio\"><span style=\"margin:0 10px;\">A</span>选项一</label><br/></div>";
+            question_htmlStr += "<div class=\"radio\" style=\"display:inline;\"><label class=\"radio\" style=\"display:inline-block;\"><input type=\"radio\" name=\"question_"+questionNum+"\" data-toggle=\"radio\"><span style=\"margin:0 10px;\">B</span>选项二</label><br/></div>";
+            question_htmlStr += "<div class=\"radio\" style=\"display:inline;\"><label class=\"radio\" style=\"display:inline-block;\"><input type=\"radio\" name=\"question_"+questionNum+"\" data-toggle=\"radio\"><span style=\"margin:0 10px;\">C</span>选项三</label><br/></div>";
+            question_htmlStr += "<div class=\"radio\" style=\"display:inline;\"><label class=\"radio\" style=\"display:inline-block;\"><input type=\"radio\" name=\"question_"+questionNum+"\" data-toggle=\"radio\"><span style=\"margin:0 10px;\">D</span>选项四</label><br/></div>";
+            question_htmlStr += "</div>";
+            $("#div-add-question").append(question_htmlStr);
+        }
+        if(templateId=='multi'){
+            //多选题模板
+        }
+        if(templateId=='blank'){
+            //填空题模板
+        }
+        getEditId();
+        getDeleteId();
+        //alert("添加问题后当前问题个数："+questionNum);
+        updateTrigger();
+        addTrigger(questionNum);
+    }
+    /*删除问题*/
+    function deleteQuestion(){
+        if(questionNum <= 1){
+            alert("工作中至少需要涵盖一道问题。");
+            $('#question-delete-modal').modal('hide');//关闭模态框
+        }else{
+            $("#div-add-question"+deleteId).remove();
+            $('#question-delete-modal').modal('hide');//关闭模态框
+        }
+        questionNum = $('#div-add-question').children('div').length;
+        //当前问题数
+        //questionNum = parseInt(questionNum) / 2;
+        //alert("删除问题后当前问题个数："+questionNum);
+        updateTrigger(questionNum);
+        addTrigger(questionNum);
+    }
+    /*saveAll 上传所有数据*/
+    var workName = "";//工作名称
+    var questionDefine = {
+        //问题数据
+        questions:new Array()
+    };
+    var triggerDefine = {
+        //跳转数据
+        triggers:new Array()
+    };
+    var editorContent = "";//编辑框html数据
+    var validityFlag = "";//提交内容的合法性标志，0为合法，1为不合法
+    function checkSubmit(){
+        /*
+        * 检查提交内容的合法性
+        * 1 检验工作名称是否为空
+        * 2 检验工作介绍是否未编辑
+        * 3 检验添加的问题是否未编辑
+        * 4 检验跳转机制是否跳转入同一题
+        * */
+        validityFlag = 0;
+        workName = $("#work-name").val();
+        if(workName == undefined || workName == "" || workName == null){
+            $("#workname-alert").css("display","block");
+            validityFlag = 1;
+        }else{
+            $("#workname-alert").css("display","none");
+        }
+        editorContent = leipiEditor.getContent();//获取编辑框html代码
+        if(editorContent=="<p id=\"initContent\">这里写你的初始化内容</p>"||editorContent == ""){
+            $("#workdescription-alert").css("display","block");
+            validityFlag = 1;
+        }else{
+            $("#workdescription-alert").css("display","none");
+        }
+        $("#div-add-question").children("div").each(function(){
+            var content =  $(this).children("div").first().text();
+            if(content == "你可以点击Edit编辑你的问题，这里会显示你编辑好的问题题干。"){
+                $("#worksetting-alert").css("display","block");
+                validityFlag = 1;
+            }else{
+                $("#worksetting-alert").css("display","none");
+            }
+        });
+        //不允许跳转入同一题
+        var trigger1 = $("#trigger-question-selector option:selected").text();
+        //alert("trigger1:"+trigger1);
+        var trigger2 = $("#trigger-to-selector option:selected").text();
+        if(trigger1 != "空" && trigger2 !="空" && trigger1 == trigger2){
+            $("#trigger-alert").css("display","block");
+            validityFlag = 1;
+        }else{
+            $("#trigger-alert").css("display","none");
+        }
+    }
+    $(function(){
+        //alert("wfx:"+$("#work-named").children().eq(0).get(0).tagName);
+        $('#work-btn-next').click(function () {
+            checkSubmit();
+            //alert("haha"+validityFlag);
+            if(validityFlag == 0){
+                $('#save-edit-modal').modal("toggle");
+            }
+        });
+    });
+    function saveAll(){
+        //alert("haha:"+$("#div-add-question").children("div").children("div").eq(1).children().eq(0).get(0).tagName);
+        //workName = $("#work-name").val();
+        //editorContent = leipiEditor.getContent();//获取编辑框html代码
+        editorContent = UE.utils.html(editorContent);
+        //editorContent = JSON.stringify(editorContent);
+        //.replace(/[^\u4E00-\u9FA5]/g,"")
+        var workJson = {
+            "workName":workName,
+            "editorContent":editorContent
+        };
+        questionDefine.questions = [];//清空数组
+        triggerDefine.triggers = [];//清空跳转
+        var triggerTemp = {
+            //原题id、原题选项内容、跳入题目id
+            questionSourceId: new String(),
+            questionOption: new String(),
+            questionToId: new String()
+        };
+        $("#div-add-question").children("div").each(function(index){
+            var questionTemp = {
+                //题干、题型、选项列表
+                questionId: new String(),
+                questionContent: new String(),
+                questionForm:new String(),
+                questionListContent:new Array()
+            };
+            //保存问题题干
+            questionTemp.questionContent = $(this).children("div").first().text();
+            //保存题目id
+            questionTemp.questionId = index;
+            //alert("题干"+questionTemp.questionId+"："+questionTemp.questionContent);
+            //保存对应问题题型
+            if($(this).children("div").eq(1).children().length>1){
+                //radio的单选题和checkbox的多选题
+                questionTemp.questionForm = $(this).children("div").eq(1).children("div").attr("class");
+                //alert("test:"+questionTemp.questionForm);
+            }else if($(this).children("div").eq(1).children().length==1){
+                //select的单选题
+                questionTemp.questionForm = 'select';
+            }else{
+                //填空题
+                questionTemp.questionForm = 'blank';
+            }
+            //alert("题型："+questionTemp.questionForm);
+            //保存对应问题的选项
+            if(questionTemp.questionForm == "select"){
+                $(this).children("div").eq(1).find("option").each(function(){
+                    var option = $(this).text();
+                    questionTemp.questionListContent.push(option);
+                });
+            }else{
+                $(this).children("div").eq(1).children("div").each(function(){
+                    var label = $(this).children("label").contents().filter(function(){
+                        return this.nodeType == 3;
+                    }).text();
+                    //alert("对应选项："+label);
+                    questionTemp.questionListContent.push(label);
+                });
+            }
+            questionDefine.questions.push(questionTemp);
+
+            var selectorQuestion = $("#trigger-question-selector option:selected").text();
+            var selectorTrigger = $("#trigger-to-selector option:selected").text();
+            //通过匹配题干来获取跳转问题的id；保存问题对应的选项内容
+            if(questionTemp.questionContent == selectorQuestion){
+                triggerTemp.questionSourceId = questionTemp.questionId;
+                triggerTemp.questionOption = $("#trigger-answer-selector option:selected").text();
+            }
+            if(questionTemp.questionContent == selectorTrigger){
+                triggerTemp.questionToId = questionTemp.questionId;
+            }
+        });
+        triggerDefine.triggers.push(triggerTemp);
+        var workStr = workJson;
+        var questionStr = questionDefine.questions;
+        var triggerStr = triggerDefine.triggers;
+        //alert("haha"+questionDefine.questions[0].questionContent);
+        alert("workStr:"+JSON.stringify(workStr));
+        alert("questionStr:"+JSON.stringify(questionStr));
+        alert("triggerStr:"+JSON.stringify(triggerStr));
+        var myjson = {"workStr":workStr,
+            "questionStr":questionStr,
+            "triggerStr":triggerStr};
+        var str = JSON.stringify(myjson);
+        //上传数据
+        /*$.ajax({
+            type:"post",
+            url:"customerJob_CreateJob?myjson="+str,
+            data:null,
+            async:false,
+            contentType: "application/json",
+            success:function(data){
+                alert("success!"+eval("("+data.result+")").info);
+                //alert(accurcy);
+            },
+            error:function(data){
+                alert("failed!");
+            }
+        });*/
+
+        $("#save-edit-modal").modal("hide");
+    }
+</script>
+<script>
+    $(function(){
+        /*select 选择不同题目类型显示对应编辑内容*/
+        $('.question-type-selector').change(function(){
+            var value = $('.question-type-selector').find('option:checked').val();
+            if(value == "1"){
+                $('#multiple-edit,#blank-edit').hide();
+                $('#simple-edit').show();
+            }
+            if(value == "2"){
+                $('#simple-edit,#blank-edit').hide();
+                $('#multiple-edit').show();
+            }
+            if(value == "3"){
+                $('#simple-edit,#multiple-edit').hide();
+                $('#blank-edit').show();
+            }
+        });
+        /*点击添加跳转显示跳转设置*/
+        $('#add-trigger-btn').click(function(){
+            $('#add-trigger-detail').toggle();
+        });
+    });
+
+</script>
+<!--bootstrap-wysiwyg-master-->
+<!--<script src="js/prettify.js"></script>
+<script src="js/bootstrap-wysiwyg.js"></script>
+<script src="js/jquery.hotkeys.js"></script>-->
+<!--flat ui js-->
+<script src="js/vendor/video.js"></script>
+<script src="js/flat-ui.min.js"></script>
+<script src="js/application.js"></script>
+<!--loading wysiwyg-->
+<!--<script>
+    $(function(){
+    function initToolbarBootstrapBindings() {
+    var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+    'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+    'Times New Roman', 'Verdana'],
+    fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+    $.each(fonts, function (idx, fontName) {
+    fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
+    });
+    $('a[title]').tooltip({container:'body'});
+    $('.dropdown-menu input').click(function() {return false;})
+    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
+    .keydown('esc', function () {this.value='';$(this).change();});
+
+    $('[data-role=magic-overlay]').each(function () {
+    var overlay = $(this), target = $(overlay.data('target'));
+    overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+    });
+    $('#voiceBtn').hide();
+    // if ("onwebkitspeechchange"  in document.createElement("input")) {
+    //   var editorOffset = $('#editor').offset();
+    //   $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+    // } else {
+    //   $('#voiceBtn').hide();
+    // }
+    };
+    initToolbarBootstrapBindings();
+    $('#editor').wysiwyg();
+    window.prettyPrint && prettyPrint();
+    });
+</script>-->
+<script type="text/javascript">
+
+    $youziku.load(".work-font", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+    $youziku.load(".work-save-font", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+/*    $youziku.load("#Pname", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+    $youziku.load("#chinese", "1dd177df7e19453f955936cb93b9780b", "Source-Han-Light");
+    $youziku.load("#indexFont", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+    $youziku.load(".title", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+    $youziku.load(".txtbody", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");*/
+    $youziku.draw();
+</script>
+</body>
+</html>

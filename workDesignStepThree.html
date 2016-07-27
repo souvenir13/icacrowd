@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+
+    <script src="https://ajax.googleapis.bootcss.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!--<script src="http://maxcdn.bootstrapcdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+    <!--youziku-->
+    <script type="text/javascript" src="http://api.youziku.com/webfont/FastJS/yzk_8103BE8432849D3F"></script>
+
+    <!--    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+
+    <!--flat ui-->
+    <link href="css/flat-ui.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+    <!--DIY css-->
+    <link href="css/main.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script>
+    <script type="text/javascript">hQGHuMEAyLn('[id^=__YX_PF_Div]');</script>
+    <style>
+
+        p{
+            font-size:15px;
+        }
+        #work-content{
+            padding-top: 0;
+            padding-left:14px;
+            width:80%;
+        }
+        #work-named{
+            clear:both;
+        }
+        .work-setting{
+            width:30%;
+            margin-right:20px;
+            margin-bottom:20px;
+        }
+        #task-platform,
+        #answer-count,
+        #page-count,
+        #answer-time,
+        #is-testmode,
+        #test-quesiton-perpage,
+        #isallow-back{
+            float:left;
+            display: block;
+        }
+        #max-count{
+            display:block;
+        }
+        /*slider css*/
+        .range-slider {
+            margin: 30px 0 0 0;
+        }
+
+        .range-slider {
+            width: 100%;
+        }
+
+        .range-slider__range {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: #d7dcdf;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+        .range-slider__range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2c3e50;
+            cursor: pointer;
+            -webkit-transition: background .15s ease-in-out;
+            transition: background .15s ease-in-out;
+        }
+        .range-slider__range::-webkit-slider-thumb:hover {
+            background: #1abc9c;
+        }
+        .range-slider__range:active::-webkit-slider-thumb {
+            background: #1abc9c;
+        }
+        .range-slider__range::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border: 0;
+            border-radius: 50%;
+            background: #2c3e50;
+            cursor: pointer;
+            -webkit-transition: background .15s ease-in-out;
+            transition: background .15s ease-in-out;
+        }
+        .range-slider__range::-moz-range-thumb:hover {
+            background: #1abc9c;
+        }
+        .range-slider__range:active::-moz-range-thumb {
+            background: #1abc9c;
+        }
+
+        .range-slider__value {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            color: #fff;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 3px;
+            background: #2c3e50;
+            padding: 5px 10px;
+            margin-top:20px;
+            margin-left:70%;
+        }
+        .range-slider__value:after {
+            position: absolute;
+            top: 8px;
+            left: -7px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-right: 7px solid #2c3e50;
+            border-bottom: 7px solid transparent;
+            content: '';
+        }
+        .slider-mark{
+            position: relative;
+            margin-top:8px;
+            margin-left:1px;
+            width: 2px;
+            height: 10px;
+            background-color: gray;
+        }
+
+        ::-moz-range-track {
+            background: #d7dcdf;
+            border: 0;
+        }
+
+        input::-moz-focus-inner,
+        input::-moz-focus-outer {
+            border: 0;
+        }
+        #advance-title{
+            cursor:pointer;
+        }
+
+    </style>
+</head>
+
+<body style="background-color:#F5F7F9">
+<div style="background:#032951;height:10px"></div>
+<div id="header" style="height:100px;width:80%;display:table;margin-left:auto;margin-right:auto">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+            UserName
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1" style="margin-top:70px;">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        </ul>
+    </div>
+    <img src="img/SeriousLogo.png" style="height:50px;margin-top:30px;">
+</div>
+<div id="container">
+    <div id="work-tab">
+        <section class="links">
+            <nav class="link-effect-14" id="link-effect-14">
+                <a href="CustomerCreateWork.html"><span>Create&nbsp;></span></a>
+                <a href="CustomerUpload.html"><span>Upload&nbsp;></span></a>
+                <a href="workDesignStepTwo.html"><span>Design&nbsp;></span></a>
+                <a href="workDesignStepThree.html"><span style="color:#16A094;">Settings&nbsp;></span></a>
+                <a href="CustomerWorkRelease.html"><span>Public&nbsp;></span></a>
+            </nav>
+        </section>
+        <div id="work-btn">
+            <button id="work-btn-next" class="btn btn-info work-font" type="button">下一步：发布工作</button>
+        </div>
+    </div>
+    <div id="work-content" class="work-font">
+            <h1 class="work-font">第三步：工作设定</h1>
+        <!--基本设定-->
+        <div id="work-named">
+            <h2 class="work-font">基本设定</h2>
+        </div>
+        <div id="setting-alert" class="alert alert-danger alert-dismissable" role="alert" style="display:none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>警告！</strong>是否有参数置为零或未填写？再仔细检查一遍哟！
+        </div>
+        <div id="task-level" class="work-setting">
+            <h3 class="work-font">任务等级</h3>
+            <p class="setting-content">您可以选择任务等级，等级越高的工作者完成任务的质量越好，但完成任务的时间将会相应延长</p>
+            <div class="range-slider">
+                <input class="range-slider__range" type="range" value="2" min="0" max="3" step="1">
+                <div class="slider-mark"></div>
+                <div class="slider-mark" style="margin-left:33%;margin-top: -10px;"></div>
+                <div class="slider-mark" style="margin-left:66%;margin-top: -10px;"></div>
+                <div class="slider-mark" style="margin-left:99%;margin-top: -10px;"></div>
+                <div style="float:left;margin-left:-20px">
+                    速度快
+                </div>
+                <div style="float:right;margin-right:-20px">质量高</div>
+                <span class="range-slider__value">0</span>
+            </div>
+        </div>
+        <div id="task-platform" class="work-setting">
+            <h3 class="work-font">任务发布平台</h3>
+            <p class="setting-content">PC端适合大量数据的工作，微信端适合小型、微量的工作。但微信端完成速度非常快。</p>
+            <div id="work-platform" style="margin-left:10%;margin-right:10%;">
+                <label class="checkbox" for="checkboxPC" style="float:left;">
+                    <input type="checkbox" name="platform" value="1" id="checkboxPC" data-toggle="checkbox" checked="checked">
+                    PC端
+                </label>
+                <label class="checkbox" for="checkboxWE" style="float:right;">
+                    <input type="checkbox" name="platform" value="2" id="checkboxWE" data-toggle="checkbox">
+                    微信端
+                </label>
+            </div>
+        </div>
+        <div id="answer-count" class="work-setting">
+            <h3 class="work-font">每道题所需答案数</h3>
+            <p class="setting-content">设定每道题需要几位工作者提交答案。请根据您的需求设定。</p>
+            <div>
+                <div class="form-group" style="text-align: center;margin-top:40px;">
+                    <input type="number" id="answer-per-question" value="3" min="1" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                    个答案/题
+                </div>
+            </div>
+        </div>
+        <div id="page-count" class="work-setting">
+            <h3 class="work-font">每页总题数</h3>
+            <p class="setting-content">设定每页一共展示多少题目，一页中过多的题目有可能导致工作者的疲劳</p>
+            <div>
+                <div class="form-group" style="text-align: center;margin-top:40px;">
+                    <input type="number" id="question-per-page" value="10" min="1" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                    题/页
+                </div>
+            </div>
+        </div>
+        <div id="max-count" class="work-setting">
+            <h3 class="work-font">工作者回答上限</h3>
+            <p class="setting-content">设定每个工作者最多能回答的问题，设定越多，工作完成速度越快。</p>
+            <div>
+                <div class="form-group" style="text-align: center;">
+                    <input type="number" id="max-answer" value="200" min="1" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                    题
+                </div>
+            </div>
+        </div>
+        <!--高级设定-->
+        <div>
+            <!--高级设定点击后才弹出-->
+            <h2 class="work-font"><a id="advance-title">高级设定<span class="caret" style="margin-top: -5px;margin-left: 5px;"></span></a></h2>
+        </div>
+        <div id="advance-setting" style="display:none;">
+            <div id="answer-time" class="work-setting">
+                <h3 class="work-font">单题答题时限范围</h3>
+                <p class="setting-content">设定每题允许工作者答题的最短和最长时间。</p>
+                <div>
+                    <div class="form-group" style="text-align: center;margin-top:40px;">
+                        最短<input type="number" id="min-time" value="3" min="1" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                        秒/题
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        最长<input type="number" id="max-time" value="200" min="1" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                        秒/题
+                    </div>
+                </div>
+            </div>
+            <div id="is-testmode" class="work-setting">
+                <h3 class="work-font">是否有测试模式</h3>
+                <p class="setting-content">设定是否有测试题，测试题的随机插入有助于预防不认真的工作者，提高准确性。</p>
+                <div style="margin-top: 40px;">
+                    <label class="radio">
+                        <input type="radio" name="testRadios" id="istest" value="1" data-toggle="radio">
+                        是
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="testRadios" id="notest" value="0" data-toggle="radio" checked="checked">
+                        否
+                    </label>
+                </div>
+            </div>
+            <div id="accuracy-threshold" class="work-setting">
+                <h3 class="work-font">准确率阈值</h3>
+                <p class="setting-content">设定动作时的准确率下限，低于该准确率的工作者将无法工作。阈值越高结果质量越好，但完成时间将延长。</p>
+                <div>
+                    <div class="form-group" style="text-align: center;margin-top:40px;">
+                        <input type="number" id="accuracy-input" value="70" min="1" max="100" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                        %
+                    </div>
+                </div>
+            </div>
+            <div id="test-mode-setting" style="display: none;">
+                <div id="test-quesiton-perpage" class="work-setting">
+                    <h3 class="work-font">每页插入测试题数</h3>
+                    <p class="setting-content">设定每插入多少测试题，每页插入的测试题越多，工作质量会相应提高。</p>
+                    <div>
+                        <div class="form-group" style="text-align: center;margin-top:40px;">
+                            <input type="number" id="test-per-page" value="1" min="1" class="form-control" style="width:40%;height:30px;text-align: center;display:inline;" required="required"/>
+                            题/页
+                        </div>
+                    </div>
+                </div>
+                <div id="isallow-back" class="work-setting">
+                    <h3 class="work-font">是否允许工作者反悔</h3>
+                    <p class="setting-content">设定是否允许工作者未通过测试模式时再做尝试做一遍题。</p>
+                    <div style="margin-top: 40px;">
+                        <label class="radio">
+                            <input type="radio" name="allowBack" value="1" data-toggle="radio">
+                            是
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="allowBack" value="0" data-toggle="radio" checked="">
+                            否
+                        </label>
+                    </div>
+                </div>
+                <div id="estimate-test-number" style="clear:both;">
+                    <h3 class="work-font">根据您的设定，计算得出：</h3>
+                    <p class="setting-content">上传测试题的最小数量为<strong id="test-lower-bound"></strong>题。</p>
+                </div>
+                <div id="upload-test-question">
+                    <h3 class="work-font">上传测试数据</h3>
+                    <div class="panel panel-default">
+                        <p>将数据拖到这里 或 {选择文件}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Posted by: ICA iCrowd Group</p>
+        <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+    </footer>
+</div>
+<!--save edit content modal-->
+<div class="modal fade" id="save-edit-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title work-save-font">
+                    确认保存
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="save-info" class="work-save-font">
+                    确认保存，进入下一步发布工作吗？
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="saveParameters()">
+                    保存
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<script>
+    var questionTotal = 1000;//上传问题数据的个数
+    var testLower = function() {
+        var questionPerPage_count = $("#question-per-page").val();//用户自定义的每页问题数
+        var testPerPage_count = $("#test-per-page").val();//用户自定义的每页测试题数
+        var testLowerBound = parseInt((questionTotal/questionPerPage_count)*testPerPage_count)+parseInt(questionPerPage_count);
+        //计算至少需要上传的测试题数
+        alert("测试题下限："+Math.ceil(testLowerBound));//向上取整
+        $("#test-lower-bound").html(Math.ceil(testLowerBound));
+    };
+    $(function(){
+        $('#advance-title').click(function(){
+            $('#advance-setting').toggle();
+        });
+        /*若用户勾选了有测试模式则显示测试模式设置部分*/
+        $("input[name='testRadios']").on("click",function(){
+            //alert($("input[name='testRadios']:checked").val());
+            if($("input[name='testRadios']:checked").val()==1){
+                $("#test-mode-setting").css("display","block");
+            }else{
+                $("#test-mode-setting").css("display","none");
+            }
+        });
+    })
+</script>
+<!--flat ui js-->
+<script src="js/vendor/video.js"></script>
+<script src="js/flat-ui.min.js"></script>
+<script src="js/application.js"></script>
+<script>
+    /*slider level value js*/
+    var checkFlag = 0;//验证标志:0为合法、1为不合法
+    var workLevel = 3;//工作等级
+    var workPlatform = "all";//工作平台1表示PC端；2表示wechat；3表示PC端和wechat
+    var answerPerQ = 5;//每题收集答案数
+    var questionPerPage =11;//每页题数
+    var maxAnswerPerW = 100;//工作者回答上限
+    var maxTimePer = 1800;//每题最长时间
+    var minTimePer = 30;//每题最短时间
+    var isTestMode = false;//是否有测试模式
+    var Accuracy = 0.6;//准确率阈值
+    var testPerPage = "";//每页插入测试题数
+    var isAllowBack = "";//是否允许工作者反悔
+    var myjson;//回传的工作参数
+
+    $("#answer-per-question").val(answerPerQ);
+    $("#question-per-page").val(questionPerPage);
+    $("#max-answer").val(maxAnswerPerW);
+    $("#min-time").val(minTimePer);
+    $("#max-time").val(maxTimePer);
+    $("#accuracy-input").val(Accuracy*100);
+    if(workPlatform=="pc"){
+        $("#checkboxPC").attr("checked", true);
+    }else if(workPlatform == "wechat"){
+        $("#checkboxWE").attr("checked", true);
+    }else{
+        $("input[name='platform']").attr("checked", true);
+    }
+    if(isTestMode){
+        $("#istest").attr("checked",true);
+    }else{
+        $("#notest").attr("checked",true);
+    }
+    //计算至少需要多少测试题目
+    testLower();
+    $("input#question-per-page").change(function(){
+        testLower();
+    });
+    $("input#test-per-page").change(function() {
+        testLower();
+    });
+    //$("#test-per-page").val();
+    var rangeSlider = function(){
+        var slider = $('.range-slider'),
+                range = $('.range-slider__range'),
+                value = $('.range-slider__value');
+        slider.each(function(){
+
+            value.each(function(){
+                var value = $('.range-slider__range').attr('value');
+                $(this).html("level:"+value);
+            });
+
+            range.on('click', function(){
+                workLevel = this.value;
+                alert("level:"+workLevel);
+                $('.range-slider__value').html("level:"+workLevel);
+            });
+        });
+    };
+    var platformCheck = function(){
+        var platform = $("input[name='platform']");//选择所有name="platform"的对象，返回数组
+        var arrChk;
+        platform.on("click",function(){
+            arrChk = "";
+            for(var i = 0;i<platform.length;i++){
+                if(platform[i].checked)arrChk += platform[i].value;
+            }
+            if(arrChk == "1"){
+                workPlatform = "pc";
+                alert(workPlatform);
+            }else if(arrChk == "2"){
+                workPlatform = "wechat";
+                alert(workPlatform);
+            }else if(arrChk == "12"){
+                workPlatform = "all";
+                alert(workPlatform);
+            }else{
+                checkFlag = 1;
+                alert(checkFlag);
+            }
+            //alert("选中的平台："+arrChk);
+        });
+    };
+    var getInput = function(){
+        answerPerQ = $("#answer-per-question").val();
+        //alert(answerPerQ);
+        questionPerPage = $("#question-per-page").val();
+        //alert(questionPerPage);
+        maxAnswerPerW = $("#max-answer").val();
+        //alert(maxAnswerPerW);
+        minTimePer = $("#min-time").val();
+        maxTimePer = $("#max-time").val();
+        isTestMode = $("input[name='testRadios']:checked").val();
+        //alert("是否存在测试题："+isTestMode);
+        Accuracy = $("#accuracy-input").val();
+        //alert("accuracy:"+Accuracy);
+        testPerPage = $("#test-per-page").val();
+        isAllowBack = $("input[name='allowBack']:checked").val();
+        //alert("是否允许返回："+isAllowBack);
+        if(answerPerQ == ""||questionPerPage == ""||maxAnswerPerW == ""||minTimePer ==""||maxTimePer==""||Accuracy==""||testPerPage==""){
+            checkFlag = 1;
+        }
+        if(answerPerQ == "0"||questionPerPage <= "0"||maxAnswerPerW <= "0"||minTimePer <="0"||maxTimePer<="0"||Accuracy<="0"||testPerPage<="0"){
+            checkFlag = 1;
+        }
+    };
+
+    $(function(){
+        rangeSlider();//获取任务等级
+        $(".range-slider__range").val(workLevel);
+        $('.range-slider__value').html("level:"+workLevel);
+        platformCheck();//获取发布平台
+        $('#work-btn-next').click(function () {
+            platformCheck();//获取发布平台
+            getInput();
+            //alert("haha"+validityFlag);
+            alert("fdsafsdf"+checkFlag);
+            if(checkFlag==1){
+                $("#setting-alert").css("display","block");
+            }else{
+                $("#setting-alert").css("display","none");
+                $('#save-edit-modal').modal("toggle");
+            }
+            checkFlag = 0;
+        });
+    });
+    function saveParameters(){
+        myjson = {
+                /*"workId":工作id*/
+                "workLevel":workLevel,
+                "workPlatform":workPlatform,
+                "answerPerQ":answerPerQ,
+                "questionPerPage":questionPerPage,
+                "maxAnswerPerW":maxAnswerPerW,
+                "maxTimePer":maxTimePer,
+                "minTimePer":minTimePer,
+                "isTestMode":isTestMode,
+                "Accuracy":Accuracy,
+                "testPerPage":testPerPage,
+                "isAllowBack":isAllowBack
+            };
+            var str = JSON.stringify(myjson);
+            alert("回传后台的参数："+str);
+        $('#save-edit-modal').modal("hide");
+    }
+
+
+</script>
+<script type="text/javascript">
+
+    $youziku.load(".work-font", "f2216a39c74b40c8ae007809325f123b", "SansGBW3");
+    $youziku.load(".work-save-font", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+    /*    $youziku.load("#Pname", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+     $youziku.load("#chinese", "1dd177df7e19453f955936cb93b9780b", "Source-Han-Light");
+     $youziku.load("#indexFont", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+     $youziku.load(".title", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");
+     $youziku.load(".txtbody", "7234c07d4a824737af6eca6b173cb908", "SansGBW3");*/
+    $youziku.draw();
+</script>
+</body>
+</html>

@@ -28,7 +28,7 @@ h3{
     font-size:18px;
 }
 #header button{
-    /*username°´Å¥*/
+    /*usernameæŒ‰é’®*/
     float:right;
     margin-top:20px;
     line-height:50px;
@@ -38,7 +38,7 @@ h3{
     color: #333
 }
 .dropdown-menu{
-    /*¸øÏÂÀ­²Ëµ¥Ìí¼ÓÒõÓ°*/
+    /*ç»™ä¸‹æ‹‰èœå•æ·»åŠ é˜´å½±*/
     border: 1px solid #686868;
     border-radius: 4px;
     -webkit-box-shadow: 3px 3px 10px #9a9a9a;
@@ -188,12 +188,12 @@ a {
     min-width:800px;
 }
 #work-content{
-    /*´Ótitle¿ªÊ¼µ½×îºóµÄÖ÷ÒªÄÚÈİµÄÑùÊ½*/
+    /*ä»titleå¼€å§‹åˆ°æœ€åçš„ä¸»è¦å†…å®¹çš„æ ·å¼*/
     padding-top: 0;
     padding-left:14px;
 }
 .workSelectBtn {
-    /*Ñ¡ÔñÄ£°å°´Å¥*/
+    /*é€‰æ‹©æ¨¡æ¿æŒ‰é’®*/
     margin-left:30px;
     width:26%;
     height: 25%;
